@@ -19,14 +19,15 @@ services:
     build:
       context: ./frontend
       dockerfile: Dockerfile
+      args:
+        - NEXT_PUBLIC_API_URL=http://34.171.121.71:8000
+        - NEXT_PUBLIC_SUPABASE_URL=${NEXT_PUBLIC_SUPABASE_URL:-}
+        - NEXT_PUBLIC_SUPABASE_ANON_KEY=${NEXT_PUBLIC_SUPABASE_ANON_KEY:-}
     container_name: genfy-frontend
     ports:
       - "3000:3000"
-    env_file:
-      - ./frontend/.env.local
     environment:
-      # Ensure the frontend knows where the backend is (accessible from the user's browser)
-      - NEXT_PUBLIC_API_URL=${NEXT_PUBLIC_API_URL:-http://localhost:8000}
+      - NEXT_PUBLIC_API_URL=http://34.171.121.71:8000
     depends_on:
       - backend
     restart: unless-stopped
