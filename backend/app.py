@@ -60,6 +60,7 @@ ALLOWED_ORIGINS = [
     "http://10.5.50.135:3000",     # New Network access
     "http://10.5.50.135:3001",
     "http://10.5.50.135:3002",
+    "http://34.171.121.71:3000",   # GCP External IP
     os.getenv("FRONTEND_URL", ""), # Production/custom frontend URL
 ]
 
